@@ -1,0 +1,19 @@
+{
+  "name": "appuser",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "quizzes": {
+      "type": "hasMany",
+      "model": "quiz",
+      "foreignKey": "createdById"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

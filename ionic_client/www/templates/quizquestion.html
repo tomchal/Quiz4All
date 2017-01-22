@@ -1,0 +1,25 @@
+<!--Ionic template-->
+<form ng-submit="submit()" ng-cloak="">
+    <div class="card">
+      <div class="item item-divider">
+        Question {{CurrentQuestionNum+1}} : {{CurrentQuestion.qtext}}
+      </div>
+
+        <div class="item item-text-wrap">
+          <ion-list>
+            <ion-radio ng-model="$parent.CurrentQuestionSelectedAnswerId" ng-repeat="answer in CurrentQuestion.answers" ng-value="answer.id">{{answer.atext}}</ion-radio>
+          </ion-list>
+        </div>
+        <div class="item item-divider">
+          <div class="button-bar">
+            <button class="button button-small button-light" ng-click="prevQuestion()" ng-show="showPrevBt">Previous</button>
+            <button class="button button-small button-positive" ng-click="nextQuestion()" ng-show="showNextBt" ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false">Next
+            </button>
+            <button class="button button-small button-positive" ng-click="submitQuiz()" ng-show="showSubmitQuizBt" ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false">Submit
+            </button>
+            <button class="button button-small button-light" ui-sref="app.quizzes">Cancel</button>
+          </div>
+        </div>
+    </div>
+</form>
+

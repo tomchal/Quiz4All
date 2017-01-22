@@ -1,0 +1,21 @@
+<ion-view view-title="Quizzes">
+  <ion-content>
+    <div class="list card" ng-repeat="quiz in Quizzes">
+      <div class="item item-body">
+        <img class="full-image" src="../img/quizimg/{{quiz.image}}">
+        <h2>{{quiz.name}}</h2>
+        <p>
+          {{quiz.desc}}
+        </p>
+        <p>
+          <a href="#" class="subdued">by: {{quiz.appuser.email}}</a>
+          <a href="#" class="subdued">published: {{quiz.created| date:'yyyy-MM-dd'}}</a>
+        </p>
+      </div>
+      <a class="item item-icon-left positive" ui-sref="app.runquiz.quizquestion({id: quiz.id,qid: 0})">
+        <i class="icon ion-play"></i>
+        Start
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

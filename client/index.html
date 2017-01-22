@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz4All</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.min.css">
+
+  <link rel="stylesheet" href="css/quiz4all.css">
+</head>
+<body style="overflow: scroll" ng-app="app">
+
+<div ng-controller="AuthLoginController" class="modal fade" id="loginModal" role="dialog" aria-labelledby="loginModal" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Login to Your Account</h1><br>
+      <form ng-submit="login()">
+        <input type="email" name="email" placeholder="Email" ng-model="user.email" required>
+        <input type="password" name="pass" placeholder="Password" ng-model="user.password" required>
+        <p class="login-error" ng-show="showError">
+          Login failed - please try again!!!<br>
+          If you don't have accout - <a data-toggle="modal" data-dismiss="modal" data-target="#registerModal">please register!</a>
+        </p>
+        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+        <input type="submit" name="cancel" class="login loginmodal-submit" data-dismiss="modal" value="Cancel" ng-click="showError=false">
+      </form>
+
+      <div class="login-help">
+        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-controller="RegisterController" class="modal fade" id="registerModal" role="dialog" aria-labelledby="registerModal" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Register in Quiz4All</h1><br>
+      <form ng-submit="register()">
+        <input type="email" name="email" placeholder="Email" ng-model="user.email" required>
+        <input type="password" name="pass" placeholder="Password" ng-model="user.password" required>
+        <input type="password" name="pass1" placeholder="Password" ng-model="user.password" required>
+        <input type="submit" name="register" class="login loginmodal-submit" value="Register">
+        <input type="submit" name="cancel" class="login loginmodal-submit" data-dismiss="modal" value="Cancel">
+      </form>
+
+      <div class="login-help">
+        <a href="#">Login</a> - <a href="#">Forgot Password</a>
+      </div>
+    </div>
+  </div>
+</div>
+<header ng-cloak>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <!--<img alt="Brand" src="img/iconmonstr-puzzle-20-240.png" height="30px">-->
+          <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+          Quiz4All</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="quizzes">All quizzes</a></li>
+          <li ng-show="currentUser"><a ui-sref="newquiz">Create new quiz</a></li>
+          <li><a ui-sref="about">About</a></li>
+          <li><a ui-sref="contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-show="currentUser" style="font-style: italic; font-size: 90%"><a>{{currentUser.email}}</a></li>
+          <li ng-hide="currentUser"><a data-toggle="modal" data-target="#registerModal">Register</a></li>
+          <li ng-hide="currentUser"><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+          <li ng-show="currentUser" ng-controller="AuthLogoutController" ><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+
+    </div>
+  </div>
+</header>
+<main ui-view></main>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+<script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+
+<script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/services/lb-services.js"></script>
+<script src="js/services/auth.js"></script>
+<script src="js/controllers/auth.js"></script>
+<script src="js/controllers/quiz4all.js"></script>
+
+<script src="js/controllers/directives.js"></script>
+</body>
+</html>

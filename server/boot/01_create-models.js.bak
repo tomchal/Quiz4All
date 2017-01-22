@@ -1,0 +1,215 @@
+/**
+ * Created by TCH on 2016-12-08.
+ */
+
+module.exports = function (app) {
+  app.dataSources.TchMySql.automigrate('quiz', function (err) {
+    if (err) throw err;
+
+    app.models.quiz.create(
+      [
+        {
+          name: 'Math Quiz',
+          desc: "Match simple test",
+          image: 'math.png',
+          id:1,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          name: 'City Quiz',
+          desc: "Where is the city?",
+          image: 'city.jpg',
+          id:2,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+      ], function (err, quizzes) {
+        if (err) throw err;
+
+        console.log('Models created: \n', quizzes);
+      });
+  });
+
+  app.dataSources.TchMySql.automigrate('question', function (err) {
+    if (err) throw err;
+
+    app.models.question.create(
+      [
+        {
+          qtext: '1+1',
+          quizId:1,
+          id:1,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          qtext: '2*2',
+          quizId:1,
+          id:2,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          qtext: 'Where is Warsaw?',
+          quizId:2,
+          id:3,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          qtext: 'where is London?',
+          quizId:2,
+          id:4,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          qtext: 'where is Madrit?',
+          quizId:2,
+          id:5,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+
+      ], function (err, questions) {
+        if (err) throw err;
+
+        console.log('Models created: \n', questions);
+      });
+  });
+
+  app.dataSources.TchMySql.automigrate('answer', function (err) {
+    if (err) throw err;
+
+    app.models.answer.create(
+      [
+        {
+          atext: 'is 1',
+          rightfl : 0,
+          questionId: 1,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'is 2',
+          rightfl : 1,
+          questionId: 1,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'is 4',
+          rightfl : 0,
+          questionId: 1,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'is 7',
+          rightfl : 0,
+          questionId: 2,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'is 6',
+          rightfl : 0,
+          questionId: 2,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'is 4',
+          rightfl : 1,
+          questionId: 2,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'USA',
+          rightfl : 0,
+          questionId: 3,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'Poland',
+          rightfl : 1,
+          questionId: 3,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'UK',
+          rightfl : 1,
+          questionId: 4,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'Russia',
+          rightfl : 0,
+          questionId: 4,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'Republic fo China',
+          rightfl : 0,
+          questionId: 4,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+        ,
+        {
+          atext: 'Spain',
+          rightfl : 1,
+          questionId: 5,
+          createdById:1,
+          created:Date.now(),
+          lastUpdated:Date.now()
+        }
+
+      ], function (err, answers) {
+        if (err) throw err;
+
+        console.log('Models created: \n', answers);
+      });
+  });
+};
+
+

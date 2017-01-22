@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-10">
+    <h3 style="margin-bottom: 1px;text-align: right;">{{CurrentQuestionNum+1}}/{{QuestionsCount}}</h3>
+  </div>
+  <div class="col-xs-12" >
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="QuizProgressCss" aria-valuemin="0" aria-valuemax="100"
+           ng-style="QuizProgressCss">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <form ng-submit="submit()" ng-cloak="">
+      <div class="panel panel-default">
+        <div class="panel-heading">Question {{CurrentQuestionNum+1}} : {{CurrentQuestion.qtext}}</div>
+        <div class="panel-body">
+          <div>
+            <md-radio-group ng-model="CurrentQuestionSelectedAnswerId">
+              <md-radio-button class="md-accent"
+                               ng-repeat="answer in CurrentQuestion.answers" ng-value="answer.id">{{answer.atext}}
+              </md-radio-button>
+            </md-radio-group>
+          </div>
+        </div>
+      </div>
+      <!--<a class="btn btn-primary" ng-click="prevQuestion()" ng-show="showPrevBt" role="button">Previous</a>-->
+      <!--<a class="btn btn-primary" ng-click="nextQuestion()" ng-show="showNextBt"-->
+         <!--ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false" role="button">Next</a>-->
+      <!--<a class="btn btn-primary" ng-click="submitQuiz()" ng-show="showSubmitQuizBt"-->
+         <!--ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false" role="button">Submit</a>-->
+
+      <button class="btn btn-primary" ng-click="prevQuestion()" ng-show="showPrevBt">Previous</button>
+      <button class="btn btn-primary" ng-click="nextQuestion()" ng-show="showNextBt"
+      ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false">Next</button>
+      <button class="btn btn-primary" ng-click="submitQuiz()" ng-show="showSubmitQuizBt"
+      ng-disabled="CurrentQuestionSelectedAnswerId==''?true:false">Submit</button>
+    </form>
+  </div>
+</div>
+

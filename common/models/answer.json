@@ -1,0 +1,41 @@
+{
+  "name": "answer",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "atext": {
+      "type": "string",
+      "required": true
+    },
+    "rightfl": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "createdById": {
+      "type": "number",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "question": {
+      "type": "belongsTo",
+      "model": "question",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

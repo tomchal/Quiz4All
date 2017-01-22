@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row" ng-show="showQuizHeader">
+    <div class="col-xs-12">
+      <div class="media">
+        <div class="media-left">
+          <img class="media-object" ng-src="../img/quizimg/{{quiz.image}}" height="100px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{quiz.name}}</h4>
+          <p>{{quiz.desc}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-show="!showQuizHeader">
+    <md-content layout-padding>
+      <div>
+        <form name="newQuiz" ng-submit="submitForm()">
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Quiz name</label>
+              <input ng-model="quiz.name">
+            </md-input-container>
+          </div>
+          <md-input-container class="md-block">
+            <label>Quiz description</label>
+            <textarea ng-model="quiz.desc" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+          </md-input-container>
+
+          <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span> Save
+          </button>
+        </form>
+      </div>
+    </md-content>
+  </div>
+</div>

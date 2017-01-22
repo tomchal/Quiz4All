@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-8">
+    <h3 style="margin-bottom: 1px;text-align: right;"> Your result {{RightAnswersCnt}}/{{QuestionsCount}}</h3>
+  </div>
+  <div class="col-xs-12" >
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="QuizProgressCss" aria-valuemin="0" aria-valuemax="100"
+           ng-style="QuizProgressCss">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="panel panel-default" ng-repeat="question in Questions">
+      <div class="panel-heading">
+        <i ng-class="{'right-answer-icon': Answers[$index].wasRight}" ng-show="Answers[$index].wasRight"
+           class="fa fa-thumbs-up" aria-hidden="true"></i>
+        <i ng-class="{'wrong-answer-icon': !Answers[$index].wasRight}" ng-show="!Answers[$index].wasRight"
+           class="fa fa-thumbs-down" aria-hidden="true"></i>
+        <span ng-class="{'md-accent': Answers[$index].wasRight}">Question {{$index+1}} : {{question.qtext}}</span>
+      </div>
+      <div class="panel-body">
+        <div>
+          <md-radio-group ng-model="Answers[$index].givenanswerId">
+            <md-radio-button ng-class="{'md-primary': answer.rightfl,'md-warn': !answer.rightfl}"
+                             ng-repeat="answer in question.answers" ng-value="answer.id" ng-disabled="true"><span
+              ng-class="{'right-answer': answer.rightfl}">{{answer.atext}} </span>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+    </div>
+    <a class="btn btn-default" ui-sref="quizzes">Home</a>
+  </div>
+</div>

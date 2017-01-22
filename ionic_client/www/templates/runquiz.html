@@ -1,0 +1,23 @@
+<!--Ionic template-->
+<ion-view title="Run Quiz">
+  <ion-content>
+    <div class="row">
+      <div class="col col-30 col-center">
+        <img class="media-object" ng-src="../img/quizimg/{{quiz.image}}" height="100">
+      </div>
+      <div class="col" >
+        <h4>{{quiz.name}}</h4>
+        <p>{{quiz.desc}}</p>
+      </div>
+    </div>
+    <div ui-view name="quizquestion"></div>
+    <div ui-view name="quizsummary"></div>
+  </ion-content>
+</ion-view>
+<!--<ion-nav-view name="quizquestion"></ion-nav-view>-->
+
+
+
+
+
+

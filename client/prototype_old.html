@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="css/quiz4all.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+<body style="overflow: scroll" ng-app="app">
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" ng-src="./img/quizDefault.png" height="100px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Quiz Name</h4>
+            <p>Quiz Desc</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <md-divider></md-divider>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <md-list ng-cloak>
+
+        <md-content>
+          <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <div >Question2</div>
+            <md-button class="md-raised" style="height: 15px">Button</md-button>
+            <md-button class="md-raised md-primary">Primary</md-button>
+            <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+            <md-button class="md-raised md-warn">Warn</md-button>
+          </section>
+        </md-content>
+
+          <!--<md-list-item ng-repeat="topping in toppings">-->
+          <md-list-item>
+            <p> Answer 1 </p>
+            <md-checkbox class="md-secondary"></md-checkbox>
+          </md-list-item>
+          <md-list-item>
+            <p> Answer 2 </p>
+            <md-checkbox class="md-secondary"></md-checkbox>
+          </md-list-item>
+
+          <md-divider></md-divider>
+        </md-list>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/services/lb-services.js"></script>
+<script src="js/services/auth.js"></script>
+<script src="js/controllers/auth.js"></script>
+<script src="js/controllers/quiz4all.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "TchMySql": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "Quiz4All",
+    "password": "Qlik123",
+    "name": "TchMySql",
+    "user": "Quiz4All",
+    "connector": "mysql"
+  },
+  "imgstore": {
+    "name": "imgstore",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./client/img"
+  }
+}
